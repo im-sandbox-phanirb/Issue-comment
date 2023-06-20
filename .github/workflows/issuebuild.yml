@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Create comments with API
         run: |
-          gh api -X POST\
+          gh api -X POST \
           https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
           -fbody='
           Issue comment from api call
