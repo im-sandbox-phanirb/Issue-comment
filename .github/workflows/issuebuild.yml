@@ -1,12 +1,12 @@
 name: Trigger when issue is created
 
-  on:
-    issues:
-      types: [opened]
-  jobs:
-    Trigger thw workflow:
-    runs-on: ubuntu-latest
-    steps:
-    - name: dump the context
-      run: echo '${{ tojson(github.event) }}' | jq
-      shell: bash
+on:
+  issues:
+    types: [opened]
+jobs:
+  comment-the-workflow:
+   runs-on: ubuntu-latest
+   steps:
+   - name: dump the context
+     run: echo '${{ toJson(github.event) }}' | jq
+     shell: bash
