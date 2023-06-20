@@ -27,10 +27,12 @@ jobs:
     steps: 
     - name: Create commment with API
       run: |
-        gh api -X POST https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments\
+        gh api -X POST \
+        https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
         -f body='
         Issue comment from API call
         '
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ORGANIZATION: ${{ github.event.organization.login }}
